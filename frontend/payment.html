@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">BookMyShow</a></h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="payment-container">
+            <h2>Payment</h2>
+            <div id="bookingSummary" class="booking-summary-details">
+                <!-- Booking summary will be loaded here -->
+            </div>
+
+            <div class="payment-methods">
+                <h3>Select Payment Method</h3>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="CARD" checked>
+                        <span>Credit/Debit Card</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="UPI">
+                        <span>UPI</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="NET_BANKING">
+                        <span>Net Banking</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="WALLET">
+                        <span>Wallet</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="payment-note">
+                <p><strong>Note:</strong> This is a demo payment. Click "Pay Now" to simulate payment.</p>
+            </div>
+
+            <button class="btn-primary btn-large" onclick="makePayment()">Pay Now</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>

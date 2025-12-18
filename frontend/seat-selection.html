@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">BookMyShow</a></h1>
+            </div>
+            <div class="nav-links">
+                <span id="userDisplay"></span>
+                <button id="authButton" onclick="handleAuth()">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="showInfo" class="show-info">
+            <!-- Show info will be loaded here -->
+        </div>
+
+        <div class="seat-selection-container">
+            <div class="screen-indicator">
+                <div class="screen">SCREEN THIS WAY</div>
+            </div>
+
+            <div id="seatMap" class="seat-map">
+                <!-- Seats will be loaded here dynamically -->
+            </div>
+
+            <div class="seat-legend">
+                <div class="legend-item">
+                    <span class="seat available"></span>
+                    <span>Available</span>
+                </div>
+                <div class="legend-item">
+                    <span class="seat selected"></span>
+                    <span>Selected</span>
+                </div>
+                <div class="legend-item">
+                    <span class="seat booked"></span>
+                    <span>Booked</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-summary">
+            <div class="summary-content">
+                <div class="selected-seats">
+                    <strong>Selected Seats:</strong>
+                    <span id="selectedSeatsDisplay">None</span>
+                </div>
+                <div class="total-amount">
+                    <strong>Total Amount:</strong>
+                    <span id="totalAmount">₹0</span>
+                </div>
+                <button id="proceedButton" class="btn-primary" onclick="proceedToPayment()" disabled>
+                    Proceed to Payment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/seat-selection.js"></script>
+</body>
+</html>

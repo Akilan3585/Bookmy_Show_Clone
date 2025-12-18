@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><a href="index.html">BookMyShow Admin</a></h1>
+            </div>
+            <div class="nav-links">
+                <span id="userDisplay"></span>
+                <button id="authButton" onclick="handleAuth()">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="admin-dashboard">
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('movies')">Movies</button>
+                <button class="tab-btn" onclick="showTab('theaters')">Theaters</button>
+                <button class="tab-btn" onclick="showTab('shows')">Shows</button>
+                <button class="tab-btn" onclick="showTab('bookings')">All Bookings</button>
+            </div>
+
+            <!-- Movies Tab -->
+            <div id="moviesTab" class="tab-content active">
+                <div class="tab-header">
+                    <h2>Manage Movies</h2>
+                    <button class="btn-primary" onclick="showAddMovieForm()">Add Movie</button>
+                </div>
+                <div id="moviesList" class="admin-list">
+                    <!-- Movies list will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Theaters Tab -->
+            <div id="theatersTab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Manage Theaters</h2>
+                    <button class="btn-primary" onclick="showAddTheaterForm()">Add Theater</button>
+                </div>
+                <div id="theatersList" class="admin-list">
+                    <!-- Theaters list will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Shows Tab -->
+            <div id="showsTab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Manage Shows</h2>
+                    <button class="btn-primary" onclick="showAddShowForm()">Add Show</button>
+                </div>
+                <div id="showsList" class="admin-list">
+                    <!-- Shows list will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Bookings Tab -->
+            <div id="bookingsTab" class="tab-content">
+                <h2>All Bookings</h2>
+                <div id="allBookingsList" class="admin-list">
+                    <!-- All bookings will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Movie Modal -->
+    <div id="addMovieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addMovieModal')">&times;</span>
+            <h2>Add New Movie</h2>
+            <form id="addMovieForm" onsubmit="addMovie(event)">
+                <input type="text" name="title" placeholder="Title" required>
+                <textarea name="description" placeholder="Description" rows="3"></textarea>
+                <input type="text" name="genre" placeholder="Genre" required>
+                <input type="text" name="language" placeholder="Language" required>
+                <input type="number" name="duration" placeholder="Duration (minutes)" required>
+                <input type="number" step="0.1" name="rating" placeholder="Rating">
+                <input type="date" name="releaseDate" required>
+                <input type="text" name="posterUrl" placeholder="Poster URL">
+                <input type="text" name="trailerUrl" placeholder="Trailer URL">
+                <input type="text" name="director" placeholder="Director" required>
+                <input type="text" name="cast" placeholder="Cast (comma separated)">
+                <button type="submit" class="btn-primary">Add Movie</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Theater Modal -->
+    <div id="addTheaterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addTheaterModal')">&times;</span>
+            <h2>Add New Theater</h2>
+            <form id="addTheaterForm" onsubmit="addTheater(event)">
+                <input type="text" name="name" placeholder="Theater Name" required>
+                <input type="text" name="city" placeholder="City" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="number" name="seatsPerRow" placeholder="Seats Per Row" value="10" required>
+                <input type="number" name="totalRows" placeholder="Total Rows" value="10" required>
+                <button type="submit" class="btn-primary">Add Theater</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Show Modal -->
+    <div id="addShowModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addShowModal')">&times;</span>
+            <h2>Add New Show</h2>
+            <form id="addShowForm" onsubmit="addShow(event)">
+                <select name="movieId" id="showMovieSelect" required>
+                    <option value="">Select Movie</option>
+                </select>
+                <select name="theaterId" id="showTheaterSelect" required>
+                    <option value="">Select Theater</option>
+                </select>
+                <input type="date" name="showDate" required>
+                <input type="time" name="showTime" required>
+                <input type="number" step="0.01" name="price" placeholder="Price" required>
+                <button type="submit" class="btn-primary">Add Show</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
